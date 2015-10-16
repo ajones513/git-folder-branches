@@ -1,0 +1,32 @@
+{
+  "name": "git-folder-branches",
+  "version": "1.0.0",
+  "description": "For each repo inside your current folder, this lists the branches inside each repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ajones513@github.com/ajones513/git-folder-branches.git"
+  },
+  "keywords": [
+    "git",
+    "branch",
+    "branches",
+    "list"
+  ],
+  "author": "Andrew Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajones513/git-folder-branches/issues"
+  },
+  "homepage": "https://github.com/ajones513/git-folder-branches#readme",
+  "dependencies": {
+    "bluebird": "^2.10.2",
+    "string.prototype.repeat": "^0.2.0"
+  },
+  "bin": {
+    "gfb": "bin/index.js"
+  }
+}
