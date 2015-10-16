@@ -9,4 +9,5 @@ Shows all branches *but* master.
 
 # Usage
 `gfb`
+
 `gfb ../some-directory`
