@@ -8,7 +8,8 @@ require('string.prototype.repeat');
 
 function getDirectories(srcPath) {
     return fs.readdirSync(srcPath).filter(function(file) {
-        return fs.statSync(path.join(srcPath, file)).isDirectory();
+        var fullPath = path.join(srcPath, file);
+        return fs.statSync(fullPath).isDirectory() && fs.readdirSync(fullPath).indexOf('.git') !== -1;
     });
 }
 
