@@ -12,7 +12,7 @@ function getDirectories(srcPath) {
         return fs.statSync(fullPath).isDirectory() && fs.readdirSync(fullPath).indexOf('.git') !== -1;
     });
 }
-
+ 
 function getGitBranches(path) {
     return new Promise(function(resolve) {
         childProcess.exec('git branch', {cwd: path}, function(err, stdOut, stdErr) {
