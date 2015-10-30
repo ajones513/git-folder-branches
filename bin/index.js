@@ -1,9 +1,10 @@
 #! /usr/bin/env node
 
-var start = Date.now();
+// var start = Date.now();
 var fs = require('fs'),
     path = require('path'),
-    childProcess = require('child_process');
+    childProcess = require('child_process'),
+    stripOuter = require('strip-outer');
 
 require('string.prototype.repeat');
 require('colors');
@@ -25,6 +26,17 @@ function getStatusLength(path) {
         });
     });
 }
+
+function getBranches(path) {
+    return new Promise(function(resolve) {
+        childProcess.exec('git for-each-ref --format=\'%(HEAD) %(refname) %(upstream:track)\' refs/heads', {cwd: path}, function(err, stdOut) {
+            if (err) {
+                throw err;
+            }
+            resolve(stdOut.split("\n").filter(function(line) { return line.length; }));
+        });
+    });
+}
  
 var srcPath = '.';
 if (process.argv.length > 2) {
@@ -32,41 +44,25 @@ if (process.argv.length > 2) {
 }
 var folders = getDirectories(srcPath).sort();
 
-var Git = require('nodegit');
-
 function report(dir) {
-    return Git.Repository.open(dir + '/.git')
-        .then(function(repo) {
-            return Promise.all([
-                    repo.getReferences(Git.Reference.TYPE.LISTALL),
-                    repo.getCurrentBranch(),
-                    getStatusLength(dir)
-                ]);
-        })
+    return Promise.all([
+            getBranches(dir),
+            getStatusLength(dir)
+        ])
         .then(function(results) {
             // console.log('Time', Date.now() - start);
-            var branches = results[0].filter(function(ref) {
-                return !ref.isRemote() && !ref.isTag() && ref.isBranch();
-            }).map(function(ref) {
-                return {
-                    name: ref.name(),
-                    ref: ref,
-                    current: ref.name() === results[1].name()
-                };
-            });
 
-            branches.forEach(function(branch) {
-                var localOid = branch.ref.target();
-                var upstreamRef = Git.Branch.upstream(branch.ref);
-                var upstreamOid = upstreamRef ? upstreamRef.target() : null;
-                if (upstreamOid && localOid.toString() !== upstreamOid.toString()) {
-                    branch.hasUpstreamChanges = true;
-                }
+            var branches = results[0].map(function(branch) {
+                return {
+                    name: stripOuter(branch, '*').trim(),
+                    current: branch.indexOf('*') === 0,
+                    hasUpstreamChanges: /\[[^\]]*behind/.test(branch)
+                };
             });
 
             return {
                 branches: branches,
-                hasLocalChanges: !!results[2]
+                localChanges: results[1]
             };
         });
 }
@@ -94,11 +90,12 @@ Promise.all(promises)
                 return false;
             });
 
-            if (displayBranches.length || data.hasLocalChanges) {
+            if (displayBranches.length || data.localChanges) {
                 console.log(folder.bold);
                 console.log('='.bold.repeat(folder.length));
-                if (data.hasLocalChanges) {
-                    console.log('Has uncommitted changes'.green);
+                if (data.localChanges) {
+                    var plural = data.localChanges > 1 ? 's' : '';
+                    console.log((data.localChanges + ' uncommitted change' + plural).green);
                 }
                 displayBranches.forEach(function(branch) {
                     var output = [];
@@ -116,6 +113,7 @@ Promise.all(promises)
                 });
                 console.log();
             }
+
         });
     })
     .catch(function(ex) {
