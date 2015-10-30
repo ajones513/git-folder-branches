@@ -1,20 +1,15 @@
 #! /usr/bin/env node
 
 // var start = Date.now();
-var fs = require('fs'),
+var osenv = require('osenv'),
+    fs = require('fs'),
+    getDirectories = require('../lib/get-directories'),
     path = require('path'),
     childProcess = require('child_process'),
     stripOuter = require('strip-outer');
 
 require('string.prototype.repeat');
 require('colors');
-
-function getDirectories(srcPath) {
-    return fs.readdirSync(srcPath).filter(function(file) {
-        var fullPath = path.join(srcPath, file);
-        return fs.statSync(fullPath).isDirectory() && fs.readdirSync(fullPath).indexOf('.git') !== -1;
-    });
-}
 
 function getStatusLength(path) {
     return new Promise(function(resolve) {
@@ -115,6 +110,30 @@ Promise.all(promises)
             }
 
         });
+
+        var pidFile = osenv.home() + '/.git-folder-branches.pid';
+        var lastPid;
+        try {
+            lastPid = fs.readFileSync(pidFile, 'utf8');
+        } catch(ex) {}
+
+        if (lastPid) {
+            childProcess.spawn(
+                'kill',
+                [lastPid],
+                {detached: true, stdio: ['ignore', 'ignore', 'ignore']}
+            );
+        }
+
+        var out = 'ignore'; // fs.openSync('./out.log', 'a');
+        var child = childProcess.spawn(
+            __dirname + '/fetcher.js',
+            [srcPath],
+            {detached: true, stdio: ['ignore', out, out]}
+        );
+
+        fs.writeFileSync(pidFile, child.pid);
+        child.unref();
     })
     .catch(function(ex) {
         console.error('Something went wrong:', ex.stack);
