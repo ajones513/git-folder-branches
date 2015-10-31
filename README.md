@@ -3,6 +3,8 @@ For each repo inside your current folder, this lists the branches inside each re
 
 Also shows if each repo has working copy changes, and if there are upstream changes to be pulled down for each branch.
 
+It only shows a branch named 'master' if it has no upstream changes.
+
 Launches a daemon process that performs a `git fetch` on each repo periodically (one repo each minute).
 
 # Installation
