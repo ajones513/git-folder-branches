@@ -89,8 +89,7 @@ Promise.all(promises)
                 console.log(folder.bold);
                 console.log('='.bold.repeat(folder.length));
                 if (data.localChanges) {
-                    var plural = data.localChanges > 1 ? 's' : '';
-                    console.log((data.localChanges + ' uncommitted change' + plural).green);
+                    console.log('Uncommitted changes'.green);
                 }
                 displayBranches.forEach(function(branch) {
                     var output = [];

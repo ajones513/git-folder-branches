@@ -1,6 +1,6 @@
 {
   "name": "git-folder-branches",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "For each repo inside your current folder, this lists the branches inside each repo",
   "main": "index.js",
   "scripts": {
