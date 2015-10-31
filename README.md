@@ -21,13 +21,13 @@ If in `/some-directory` you had two Git repos `/some-directory/my-repo` and `/so
 ```
 my-repo
 =======
-1 uncommitted change
+Uncommitted changes
 * refs/heads/master [behind 60]
 refs/heads/some-branch
 
 another-repo
 ============
-4 uncommitted changes
+Uncommitted changes
 refs/heads/master
 * refs/heads/some-branch
 
