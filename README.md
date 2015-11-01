@@ -28,7 +28,7 @@ _`<directory>` can either be the directory to a repo, or a directory containing 
 
 # Example Output
 
-If in `/some-directory` you had two Git repos `/some-directory/my-repo` and `/some-directory/another-repo`, then run:
+If in `/some-directory` you had two Git repos `/some-directory/my-repo` and `/some-directory/another-repo`, then ran:
 
 `g -a /some-directory`
 
