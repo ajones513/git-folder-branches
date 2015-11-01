@@ -1,4 +1,5 @@
 # git-folder-branches
+
 Allows you to bookmark a bunch of repos, and folders containing several repos, automatically fetch them periodicially and show a summary view of your branches, working copy changes and if your branch is behind/ahead of its upstream.
 
 # Installation
@@ -45,3 +46,6 @@ refs/heads/master
 * refs/heads/some-branch
 
 ```
+
+It only shows a branch named 'master' if it has no upstream changes.
+
