@@ -19,6 +19,8 @@ _`<directory>` can either be the directory to a repo, or a directory containing 
 
 `gfb -d <directory>` - delete `<directory>` from bookmarks
 
+`gfbd` - start the fetch daemon. It `git fetch`es your bookmarks one every 30 seconds. In this release you just have to `kill` the daemon yourself if you want to stop it. No need to restart when you change your bookmarks though.
+
 # Example Output
 
 If in `/some-directory` you had two Git repos `/some-directory/my-repo` and `/some-directory/another-repo`, and you:
