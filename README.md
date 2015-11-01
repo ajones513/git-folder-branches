@@ -1,18 +1,21 @@
 # git-folder-branches
-For each repo inside your current folder, this lists the branches inside each repo.
-
-Also shows if each repo has working copy changes, and if there are upstream changes to be pulled down for each branch.
-
-Launches a daemon process that performs a `git fetch` on each repo periodically (one repo each minute).
+Allows you to bookmark a bunch of repos, or folders containing a bunch of repos, automatically fetch them periodicially and show a summary view of your branches, working copy changes and if your branch is behind/ahead of its upstream.
 
 # Installation
 
 `npm install git-folder-branches -g`
 
 # Usage
-`gfb`
+`gfb <repo-directory>` - show summary of `<repo-directory>`
 
-`gfb ../some-directory`
+`gfb <directory-above-repos>` - show summary of all the repos inside `<directory-above-repos>`
+
+`gfb` - show summary of bookmarked directories
+
+`gfb -a <repo-directory>` - add `<repo-directory>` to bookmarks
+
+`gfb -a <directory-above-repos>` - add `<directory-above-repos>` to bookmarks
+
 
 # Example Output
 
