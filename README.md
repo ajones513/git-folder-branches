@@ -2,7 +2,7 @@
 
 Allows you to bookmark a bunch of repos, and folders containing several repos, automatically fetch them periodicially and show a summary view of your branches, working copy changes and if your branch is behind/ahead of its upstream.
 
-It also allows you to open your repos in the great GUI SourceTree ([https://www.sourcetreeapp.com/](https://www.sourcetreeapp.com/). This could easily be made configurable at some point.
+It also allows you to open your repos in the great GUI SourceTree ([https://www.sourcetreeapp.com/](https://www.sourcetreeapp.com/)). This could easily be made configurable at some point.
 
 Be aware that in order for quick access it takes over the command `g`.
 
