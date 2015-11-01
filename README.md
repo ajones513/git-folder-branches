@@ -1,25 +1,33 @@
 # git-folder-branches
-Allows you to bookmark a bunch of repos, or folders containing a bunch of repos, automatically fetch them periodicially and show a summary view of your branches, working copy changes and if your branch is behind/ahead of its upstream.
+Allows you to bookmark a bunch of repos, and folders containing several repos, automatically fetch them periodicially and show a summary view of your branches, working copy changes and if your branch is behind/ahead of its upstream.
 
 # Installation
 
 `npm install git-folder-branches -g`
 
 # Usage
-`gfb <repo-directory>` - show summary of `<repo-directory>`
 
-`gfb <directory-above-repos>` - show summary of all the repos inside `<directory-above-repos>`
+_`<directory>` can either be the directory to a repo, or a directory containing several repos._
+
+`gfb <directory>` - show summary of `<directory>`
 
 `gfb` - show summary of bookmarked directories
 
-`gfb -a <repo-directory>` - add `<repo-directory>` to bookmarks
+`gfb -a <directory>` - add `<directory>` to bookmarks
 
-`gfb -a <directory-above-repos>` - add `<directory-above-repos>` to bookmarks
+`gfb -l` - list bookmarks
 
+`gfb -d <directory>` - delete `<directory>` from bookmarks
 
 # Example Output
 
-If in `/some-directory` you had two Git repos `/some-directory/my-repo` and `/some-directory/another-repo`:
+If in `/some-directory` you had two Git repos `/some-directory/my-repo` and `/some-directory/another-repo`, and you:
+
+* Run `gfb -a /some-directory` then run `gfb`
+* Run `gfb /some-directory`
+* Run `gfb /some-directory/my-repo /some-directory/another-repo`
+
+... you should see the following output with some nice colour coding:
 
 ```
 my-repo
