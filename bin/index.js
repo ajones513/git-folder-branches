@@ -5,6 +5,9 @@ var args = process.argv.slice(2);
 var options = {};
 var params = [];
 
+var command = process.argv[1].split('/');
+command = command[command.length - 1];
+
 args.filter(function(arg) {
     return arg.indexOf('-') === 0;
 }).forEach(function(arg) {
@@ -23,7 +26,8 @@ if (options.a || options.d) {
 }
 
 if (params.length) {
-    require('../lib/open')(
+    require('../lib/action')(
+        command,
         params[0].replace(/[^0-9]/g, '') === params[0],
         params[0]
     );

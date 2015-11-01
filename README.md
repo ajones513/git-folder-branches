@@ -1,10 +1,10 @@
 # git-folder-branches
 
-Allows you to bookmark a bunch of repos, and folders containing several repos, automatically fetch them periodicially and show a summary view of your branches, working copy changes and if your branch is behind/ahead of its upstream.
+Allows you to bookmark a bunch of repos, and folders containing several repos, automatically fetch them periodicially and show a summary view of your branches, working copy changes and if your branch is behind/ahead of its upstream. Also has a quick `git pull` function.
 
 It also allows you to open your repos in the great GUI SourceTree ([https://www.sourcetreeapp.com/](https://www.sourcetreeapp.com/)). This could easily be made configurable at some point.
 
-Be aware that in order for quick access it takes over the command `g`.
+Be aware that in order for quick access it takes over the commands `g`, `gu` and `gfbd`.
 
 # Installation
 
@@ -14,11 +14,15 @@ Be aware that in order for quick access it takes over the command `g`.
 
 _`<directory>` can either be the directory to a repo, or a directory containing several repos._
 
+`gu <repo-path>` - `git pull` in `<repo-path>`
+
 `g <repo-path>` - open `<repo-path>` in SourceTree
 
 `g` - show summary of bookmarked directories, which gives a numbered output
 
 `g <number>` - open the repo corresponding to `<number>` last time `g` was run in SourceTree
+
+`gu <number>` - `git pull` in the repo corresponding to `<number>` from last time `g` was run
 
 `g -a <directory>` - add `<directory>` to bookmarks
 
