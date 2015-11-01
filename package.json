@@ -1,6 +1,6 @@
 {
   "name": "git-folder-branches",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "For each repo inside your current folder, this lists the branches inside each repo",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "list"
   ],
   "author": "Andrew Jones",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ajones513/git-folder-branches/issues"
   },
