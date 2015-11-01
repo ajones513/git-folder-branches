@@ -1,7 +1,7 @@
 {
   "name": "git-folder-branches",
-  "version": "1.3.2",
-  "description": "For each repo inside your current folder, this lists the branches inside each repo",
+  "version": "1.3.3",
+  "description": "Git repo bookmarks, summary view and auto-fetching",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,8 @@
     "git",
     "branch",
     "branches",
-    "list"
+    "list",
+    "fetch"
   ],
   "author": "Andrew Jones",
   "license": "MIT",
