@@ -20,9 +20,4 @@ if (options.a || options.d) {
     return;
 }
 
-if (options.l) {
-    require('../lib/list')();
-    return;
-}
-
-require('../lib/show')(params);
+require('../lib/show')(params, options.b, options.u);
