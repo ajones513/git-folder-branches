@@ -29,7 +29,7 @@
     "strip-outer": "^1.0.0"
   },
   "bin": {
-    "gfb": "bin/index.js",
+    "g": "bin/index.js",
     "gfbd": "bin/daemon.js"
   },
   "devDependencies": {

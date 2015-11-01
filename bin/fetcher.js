@@ -10,7 +10,7 @@ var delay = 30000;
 var currentIndex = 0;
 
 function fetch() {
-    var folders = repoPaths.fromRoots(config.readBookmarks());
+    var folders = repoPaths.fromRoots(config.read('bookmarks'));
 
     if (!folders.length) {
         console.log('Nothing to fetch');
