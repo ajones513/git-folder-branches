@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 var osenv = require('osenv'),
     fs = require('fs'),

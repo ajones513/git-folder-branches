@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 // global.start = Date.now();
 var args = process.argv.slice(2);
@@ -25,7 +25,7 @@ if (options.a || options.d) {
     return;
 }
 
-if (params.length) {
+if (params.length && ['gp', 'gs', 'gfbcd'].indexOf(command) !== -1) {
     require('../lib/action')(
         command,
         params[0].replace(/[^0-9]/g, '') === params[0],
@@ -34,4 +34,4 @@ if (params.length) {
     return;
 }
 
-require('../lib/show')(params, options.b, options.u);
+require('../lib/show')(params, options.b, options.u, command);

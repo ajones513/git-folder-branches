@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 var childProcess = require('child_process');
 var repoPaths = require('../lib/repo-paths');
