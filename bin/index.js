@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 // global.start = Date.now();
 var args = process.argv.slice(2);
@@ -20,18 +20,19 @@ params = args.filter(function(arg) {
     return arg.indexOf('-') !== 0;
 });
 
-if (options.a || options.d) {
+if (['g', 'ga'].indexOf(command) !== -1 && (options.a || options.d)) {
     require('../lib/update-bookmarks')(options.a, params);
     return;
 }
 
-if (params.length) {
+if (['gp', 'gs', 'gfbcd'].indexOf(command) !== -1) {
+    var param = params.length ? params[0] : '.';
     require('../lib/action')(
         command,
-        params[0].replace(/[^0-9]/g, '') === params[0],
-        params[0]
+        param.replace(/[^0-9]/g, '') === param,
+        param
     );
     return;
 }
 
-require('../lib/show')(params, options.b, options.u);
+require('../lib/show')(params, command);

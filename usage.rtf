@@ -1,0 +1,167 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red154\green154\blue154;\red242\green242\blue242;\red46\green174\blue187;
+\red200\green20\blue201;\red47\green180\blue29;\red159\green160\blue28;\red180\green36\blue25;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww27260\viewh16300\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf2 \cb0 \CocoaLigature0 # Print repo summary\cf3 \
+bash-3.2# g\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 [No repos to report on]\cf3 \
+\cf4 =======================\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf3 \
+\cf2 # This is the example folder/repo tree we're working with. my-repo, test and some-repo are Git repos.\cf3 \
+bash-3.2# tree /tmp/example/ -L 2\
+/tmp/example/\
+\uc0\u9500 \u9472 \u9472  repos-1\
+\uc0\u9474 \'a0\'a0 \u9500 \u9472 \u9472  my-repo\
+\uc0\u9474 \'a0\'a0 \u9492 \u9472 \u9472  test\
+\uc0\u9492 \u9472 \u9472  repos-2\
+    \uc0\u9492 \u9472 \u9472  some-repo\
+\
+5 directories, 0 files\
+\
+\
+\cf2 # Add a folder and a repo as 'bookmarks'\cf3 \
+bash-3.2# g -a /tmp/example/repos-1 /tmp/example/repos-2/some-repo/\
+\
+\
+\cf2 # Print repo summary. Green = working copy changes, red = behind/ahead of upstream\cf3 \
+bash-3.2# g\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf5 1) \cf4 /tmp/example/repos-1\cf3  \cf5 2) \cf4 /tmp/example/repos-2/some-repo\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 =========================================================\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6 /tmp/example/repos-1/my-repo\cf5  (1)\cf3  \cf7 *1.5.4\cf3  \cf7 another-branch\cf3 \
+\cf1 /tmp/example/repos-1/test\cf5  (2)\cf3  \cf8 *master\cf3 \
+\cf1 /tmp/example/repos-2/some-repo\cf5  (3)\cf3  \cf7 *test-branch\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf3 \
+\cf2 # Only show repos in /tmp/example/repos-2\cf3 \
+bash-3.2# g /tmp/example/repos-2\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf5 1) \cf4 /tmp/example/repos-1\cf3  \cf5 2) \cf4 /tmp/example/repos-2/some-repo\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 =========================================================\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf1 /tmp/example/repos-2/some-repo\cf5  (1)\cf3  \cf7 *test-branch\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf3 \
+\cf2 # Only show repos in /tmp/example/repos-2/some-repo - references number 2) on the top line of `g`'s previous output\
+\cf3 bash-3.2# g 2\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf5 1) \cf4 /tmp/example/repos-1\cf3  \cf5 2) \cf4 /tmp/example/repos-2/some-repo\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 =========================================================\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf1 /tmp/example/repos-2/some-repo\cf5  (1)\cf3  \cf7 *test-branch\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf2 # The 'test' repo has upstream changes\cf3 \
+bash-3.2# g\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf5 1) \cf4 /tmp/example/repos-1\cf3  \cf5 2) \cf4 /tmp/example/repos-2/some-repo\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 =========================================================\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6 /tmp/example/repos-1/my-repo\cf5  (1)\cf3  \cf7 *1.5.4\cf3  \cf7 another-branch\cf3 \
+\cf1 /tmp/example/repos-1/test\cf5  (2)\cf3  \cf8 *master\cf3 \
+\cf1 /tmp/example/repos-2/some-repo\cf5  (3)\cf3  \cf7 *test-branch\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf3 \
+\cf2 # Quick `git pull` on /tmp/example/repos-1/test (references (1) in the list in `g`'s previous output)\cf3 \
+bash-3.2# gp 2\
+Updating d18feb6..51557cf\
+Fast-forward\
+ README.md | 1 \cf6 +\cf3 \
+ 1 file changed, 1 insertion(+)\
+\
+\
+\cf2 # `g` only shows repos with working copy changes, branches not named 'master', or branches that have upstream changes. We `git pull`ed the 'test' repo, so now it no longer shows:\cf3 \
+bash-3.2# g\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf5 1) \cf4 /tmp/example/repos-1\cf3  \cf5 2) \cf4 /tmp/example/repos-2/some-repo\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 =========================================================\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6 /tmp/example/repos-1/my-repo\cf5  (1)\cf3  \cf7 *1.5.4\cf3  \cf7 another-branch\cf3 \
+\cf1 /tmp/example/repos-2/some-repo\cf5  (2)\cf3  \cf7 *test-branch\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf2 \
+# `ga` behaves exactly the same as `g` except it will include repos regardless of their state\cf3 \
+bash-3.2# ga\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf5 1) \cf4 /tmp/example/repos-1\cf3  \cf5 2) \cf4 /tmp/example/repos-2/some-repo\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 =========================================================\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6 /tmp/example/repos-1/my-repo\cf5  (1)\cf3  \cf7 *1.5.4\cf3  \cf7 another-branch\cf3 \
+\cf1 /tmp/example/repos-1/test\cf5  (2) \cf7 *master\cf3 \
+\cf1 /tmp/example/repos-2/some-repo\cf5  (3)\cf3  \cf7 *test-branch\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf3 \
+\cf2 # Deleting 'bookmarks'\cf3 \
+bash-3.2# g -d /tmp/example/repos-1 /tmp/example/repos-2/some-repo/\
+\
+\
+\cf2 # Empty again now\cf3 \
+bash-3.2# ga\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 [No repos to report on]\cf3 \
+\cf4 =======================\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf3 \
+\cf2 # Adding them back\
+\cf3 bash-3.2# g -a /tmp/example/repos-1 /tmp/example/repos-2/some-repo/\
+\
+\
+\cf2 # And they're back\cf3 \
+bash-3.2# g\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf5 1) \cf4 /tmp/example/repos-1\cf3  \cf5 2) \cf4 /tmp/example/repos-2/some-repo\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf4 =========================================================\cf3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf6 /tmp/example/repos-1/my-repo\cf5  (1)\cf3  \cf7 *1.5.4\cf3  \cf7 another-branch\cf3 \
+\cf1 /tmp/example/repos-2/some-repo\cf5  (2)\cf3  \cf7 *test-branch\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf2 # Currently in /tmp\cf7 \
+\cf3 bash-3.2# pwd\
+/tmp\
+\
+\
+\cf2 # cd into /tmp/example/repos-2/some-repo (references (2) in the list in `g`/`ga`'s previous output)\cf3 \
+bash-3.2# gc 2\
+\
+\
+\cf2 # Now in /tmp/example/repos-2/some-repo\cf3 \
+bash-3.2# pwd\
+/tmp/example/repos-2/some-repo\
+\
+\
+\cf2 # Open . in SourceTree\cf3 \
+bash-3.2# gs .\
+\
+\
+\cf2 # Open /tmp/example/repos-2/some-repo in SourceTree\cf3 \
+bash-3.2# gs 2\
+\
+\
+\cf2 # Start the daemon that fetches each of your 'bookmarks', fetching a single one every 30 seconds. No stop function (yet), just kill it manually if you want to stop it. You don't have to restart it if you change your bookmarks.\cf3 \
+bash-3.2# gfbd\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf7 \
+}

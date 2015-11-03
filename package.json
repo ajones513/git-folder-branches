@@ -1,6 +1,6 @@
 {
   "name": "git-folder-branches",
-  "version": "1.4.4",
+  "version": "1.5.4",
   "description": "Git repo bookmarks, summary view and auto-fetching",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,10 @@
   },
   "bin": {
     "g": "bin/index.js",
-    "gu": "bin/index.js",
+    "ga": "bin/index.js",
+    "gp": "bin/index.js",
+    "gs": "bin/index.js",
+    "gfbcd": "bin/index.js",
     "gfbd": "bin/daemon.js"
   },
   "devDependencies": {
