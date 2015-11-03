@@ -25,8 +25,6 @@ Be aware that in order for quick access it takes over a few short commands:
 
 `npm install git-folder-branches -g`
 
-Put this in your `~/.bash_profile` to enable the quick `cd` functionality. Without this `gc` won't work.
-
-```function gc() { cd `gfbcd "$@"` ;}```
+Then, put ```function gc() { cd `gfbcd "$@"` ;}``` in your `~/.bash_profile` to enable the quick `cd` functionality. Without this `gc` won't work. You'll probably need to restart your shell session for it to take effect.
 
 # Usage
