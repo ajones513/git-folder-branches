@@ -33,6 +33,6 @@ Tested on OS X. Might just work on Linux. Some tweaks probably needed for Window
 
 # Usage
 
-https://raw.githubusercontent.com/ajones513/git-folder-branches/master/docs/usage.gif
+[https://raw.githubusercontent.com/ajones513/git-folder-branches/master/docs/usage.gif](https://raw.githubusercontent.com/ajones513/git-folder-branches/master/docs/usage.gif)
 
 ![](https://github.com/ajones513/git-folder-branches/blob/master/docs/usage.gif)
