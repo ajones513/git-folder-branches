@@ -20,6 +20,11 @@ params = args.filter(function(arg) {
     return arg.indexOf('-') !== 0;
 });
 
+if (['g', 'ga'].indexOf(command) !== -1 && options.x) {
+    require('../lib/exclude-branches')(params);
+    return;
+}
+
 if (['g', 'ga'].indexOf(command) !== -1 && (options.a || options.d)) {
     require('../lib/update-bookmarks')(options.a, params);
     return;
