@@ -1,6 +1,6 @@
 {
   "name": "git-folder-branches",
-  "version": "1.5.5",
+  "version": "1.6.0",
   "description": "Git repo bookmarks, summary view and auto-fetching",
   "main": "index.js",
   "scripts": {
