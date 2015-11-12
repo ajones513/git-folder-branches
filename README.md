@@ -36,3 +36,7 @@ Tested on OS X. Might just work on Linux. Some tweaks probably needed for Window
 [https://raw.githubusercontent.com/ajones513/git-folder-branches/master/docs/usage.gif](https://raw.githubusercontent.com/ajones513/git-folder-branches/master/docs/usage.gif)
 
 ![](https://github.com/ajones513/git-folder-branches/blob/master/docs/usage.gif)
+
+## Other Features
+
+`g -x "some regular expression" ...` - exclude branches that have a name that matches one of the regexes provided. Run without providing any regular expressions to clear. The regular expressions are passed into `new RegExp()`, so escape appropriately.
