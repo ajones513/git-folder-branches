@@ -27,7 +27,7 @@ Be aware that in order for quick access it takes over a few short commands:
 
 Then, put ```function gc() { cd `gfbcd "$@"` ;}``` at the bottom of your `~/.bash_profile` to enable the quick `cd` functionality. Without this `gc` won't work. You'll probably need to restart your shell session for it to take effect.
 
-# Compatability
+# Compatibility
 
 Tested on OS X. Might just work on Linux. Some tweaks probably needed for Windows.
 
