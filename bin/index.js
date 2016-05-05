@@ -30,7 +30,7 @@ if (['g', 'ga'].indexOf(command) !== -1 && (options.a || options.d)) {
     return;
 }
 
-if (['gp', 'gs', 'gfbcd'].indexOf(command) !== -1) {
+if (['gp', 'gpa', 'gs', 'gfbcd'].indexOf(command) !== -1) {
     var param = params.length ? params[0] : '.';
     require('../lib/action')(
         command,

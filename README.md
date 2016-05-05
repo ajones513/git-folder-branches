@@ -40,3 +40,5 @@ Tested on OS X. Might just work on Linux. Some tweaks probably needed for Window
 ## Other Features
 
 `g -x "some regular expression" ...` - exclude branches that have a name that matches one of the regexes provided. Run without providing any regular expressions to clear. The regular expressions are passed into `new RegExp()`, so escape appropriately.
+
+`gpa` - after running `g` or `ga`, run `gpa` to `gp` (`git pull`) all repos where the checked out branch has upstream changes.
